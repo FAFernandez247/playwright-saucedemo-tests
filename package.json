@@ -6,7 +6,11 @@
   "scripts": {
     "login-ui": "npx playwright test tests/login.spec.ts --project chromium --ui",
     "auth-setup": "npx playwright test tests/auth.setup.ts --project setup",
-    "cart-ui": "npx playwright test tests/cart.spec.ts --project cart --ui"
+    "cart-ui": "npx playwright test tests/cart.spec.ts --project cart --ui",
+    "login-data-driven-ui": "npx playwright test tests/data-driven-login.spec.ts --project chromium --ui",
+    "login": "npx playwright test tests/login.spec.ts --project chromium",
+    "cart": "npx playwright test tests/cart.spec.ts --project cart",
+    "login-data-driven": "npx playwright test tests/data-driven-login.spec.ts --project chromium"
   },
   "repository": {
     "type": "git",
