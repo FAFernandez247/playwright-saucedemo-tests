@@ -32,5 +32,3 @@ test.describe('Login - Data Driven Test', {
     });
   });
 });
-//run lighthouse
-//add read me

@@ -10,7 +10,8 @@
     "login-data-driven-ui": "npx playwright test tests/data-driven-login.spec.ts --project chromium --ui",
     "login": "npx playwright test tests/login.spec.ts --project chromium",
     "cart": "npx playwright test tests/cart.spec.ts --project cart",
-    "login-data-driven": "npx playwright test tests/data-driven-login.spec.ts --project chromium"
+    "login-data-driven": "npx playwright test tests/data-driven-login.spec.ts --project chromium",
+    "performance-test": "npx playwright test tests/playwright-with-lighthouse/performance.spec.ts --project chromium"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,13 @@
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
     "@playwright/test": "^1.55.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.4.0",
     "dotenv": "^17.2.2"
+  },
+  "dependencies": {
+    "chrome-launcher": "^1.2.0",
+    "js-yaml": "^4.1.0",
+    "lighthouse": "^12.8.2"
   }
 }
