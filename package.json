@@ -1,0 +1,28 @@
+{
+  "name": "playwright-saucedemo-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "login-ui": "npx playwright test tests/login.spec.ts --project chromium --ui",
+    "auth-setup": "npx playwright test tests/auth.setup.ts --project setup",
+    "cart-ui": "npx playwright test tests/cart.spec.ts --project cart --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAFernandez247/playwright-saucedemo-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAFernandez247/playwright-saucedemo-tests/issues"
+  },
+  "homepage": "https://github.com/FAFernandez247/playwright-saucedemo-tests#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.4.0",
+    "dotenv": "^17.2.2"
+  }
+}
