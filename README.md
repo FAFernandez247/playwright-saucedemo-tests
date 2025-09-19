@@ -22,3 +22,27 @@ This project automates functional testing of the [SauceDemo](https://www.saucede
 - ✅ **Performance Testing (Lighthouse)** – run locally  
 - ✅ **CI/CD Integration** with GitHub Actions
 
+## 💡Quick Start Guide
+***Please do this after forking and cloning the Repository:***
+
+#### 📜Installation of Playwright & Other Dependencies
+
+```bash
+npm install
+```
+
+**⚡ Setup for Cart Tests**
+
+***The Cart and Checkout test suites depend on an authenticated user***
+***We handle this with a dedicated auth.setup.ts file that:***
+- Logs in the user
+- Stores a storage state (.auth/user.json) so cart tests can skip login
+
+#### ▶ Run Setup (Login once)
+```bash
+npx playwright test tests/auth.setup.ts --project setup
+```
+***Or***
+```bash
+npm run auth-setup
+```
