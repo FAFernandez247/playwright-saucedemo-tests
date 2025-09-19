@@ -10,13 +10,14 @@ env:
     SAUCE_LOCKED_USERNAME: ${{ secrets.SAUCE_LOCKED_USERNAME }}
     SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
 jobs:
-  test:
+  functional-tests:
+    name: Functional Tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        test-name: [login, cart, login-data-driven, performance-test]
+        test-name: [login, cart, login-data-driven]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -45,8 +46,24 @@ jobs:
         name: playwright-report-${{ matrix.test-name }}
         path: playwright-report/
         retention-days: 30
+  performance-test:
+    name: Performance Test (Lighthouse)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: functional-tests
+    continue-on-error: true
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Performance Test
+      run: npm run performance-test
     - name: Upload Lighthouse Report
-      if: matrix.test-name == 'performance-test'
       uses: actions/upload-artifact@v4
       with:
         name: lighthouse-report
