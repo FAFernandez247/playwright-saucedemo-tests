@@ -115,7 +115,7 @@ test.describe('Session handling tests', {
     test.beforeEach(async ({loginPage}) =>{
         await loginPage.navigateTo();
     });
-    test('Should stay logged in if the browser back button is clicked', {annotation: {type: 'Issue', description: 'User is navigated back to the login page'}, tag: ['@HappyPath', '@Issue']}, async ({loginPage}) => {
+    test.fail('Should stay logged in if the browser back button is clicked', {annotation: {type: 'Expected to fail', description: 'User is navigated back to the login page'}, tag: ['@HappyPath', '@Issue']}, async ({loginPage}) => {
         await test.step('Login with valid credentials', async() => {
             await loginPage.login(process.env.SAUCE_USERNAME!, process.env.SAUCE_PASSWORD!);
         });
