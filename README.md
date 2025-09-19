@@ -46,3 +46,14 @@ npx playwright test tests/auth.setup.ts --project setup
 ```bash
 npm run auth-setup
 ```
+
+#### ▶ Run tests 
+```bash
+# Run all tests
+npx playwright test
+
+# Run specific test file
+npx playwright test tests/login.spec.ts --project chromium
+npx playwright test tests/cart.spec.ts --project cart
+```
+***⚠️Note: Running cart.spec.ts will fail if you haven't run auth.setup.ts first because the .auth/ folder and user.json storage state file are created only after setup.***
